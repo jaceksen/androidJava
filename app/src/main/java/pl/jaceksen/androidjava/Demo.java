@@ -11,10 +11,17 @@ public class Demo {
         System.out.println(player.getHandleName());
         player.setHandleName("Rima");
         System.out.println(player.getHandleName());
+        System.out.println(player.getWeapon().getName().toUpperCase());
+
+
         player.setHandleName("Tom");
         System.out.println(player.getHandleName());
 
         Player player2 = new Player();
-        System.out.println("Player2: " + player2.getHandleName());
+        System.out.println("\nPlayer2: " + player2.getHandleName());
+
+        Player player3 = new Player();
+        System.out.println("\nPlayer3: " + player3.getHandleName());
+        System.out.println(player3.getWeapon().getName());
     }
 }

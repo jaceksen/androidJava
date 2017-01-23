@@ -9,6 +9,7 @@ public class Player {
     private int lives;
     private int level;
     private int score;
+    private Weapon weapon;
 
     public Player(){
         //to jest wywołanie drugiego konstruktora (tego ze Setring handle)
@@ -16,13 +17,23 @@ public class Player {
     }
 
     public Player(String handle){
+        this(handle,1);
         handleName = handle;
         lives = 3;
         level = 1;
         score = 0;
     }
 
+    public Player(String handle, int startingLevel){
+        setHandleName(handle);
+        setLives(3);
+        setLevel(startingLevel);
+        setScore(0);
+        setDefaultWeapon();
+    }
+
     public Player(String handleName, int lives, int level, int score) {
+        this(handleName,1);
         this.handleName = handleName;
         this.lives = lives;
         this.level = level;
@@ -40,6 +51,11 @@ public class Player {
             return;
         }
         this.handleName = handleName;
+
+    }
+
+    private void setDefaultWeapon(){
+        this.weapon = new Weapon("Sword",10,20);
     }
 
     public int getLives() {
@@ -64,5 +80,13 @@ public class Player {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 }
