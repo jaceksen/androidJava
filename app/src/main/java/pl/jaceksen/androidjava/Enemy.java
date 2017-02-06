@@ -16,6 +16,23 @@ public class Enemy {
         this.lives = lives;
     }
 
+    public void takeDamage(int damage){
+        int remainingHitpoints = this.hitPoints - damage;
+        if(remainingHitpoints > 0) {
+            setHitPoints(remainingHitpoints);
+            System.out.println("I took " + damage + " points damage, and have " + remainingHitpoints + " left.");
+        } else {
+            this.lives = this.lives - 1;
+            System.out.println("I've lost a life.");
+        }
+    }
+
+    public void showInfo(){
+        System.out.println("Name: "  + this.name);
+        System.out.println("Hitpoints: " + this.hitPoints);
+        System.out.println("Lives: " + this.lives);
+    }
+
     public String getName() {
         return name;
     }
