@@ -23,5 +23,7 @@ public class Demo {
         Player player3 = new Player();
         System.out.println("\nPlayer3: " + player3.getHandleName());
         System.out.println(player3.getWeapon().getName());
+
+        Weapon myAxe = new Weapon();
     }
 }

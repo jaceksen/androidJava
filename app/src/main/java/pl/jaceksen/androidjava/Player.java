@@ -33,7 +33,7 @@ public class Player {
     }
 
     public Player(String handleName, int lives, int level, int score) {
-        this(handleName,1);
+        this(handleNamemarmar,1);
         this.handleName = handleName;
         this.lives = lives;
         this.level = level;
