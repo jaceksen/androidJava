@@ -1,5 +1,7 @@
 package pl.jaceksen.androidjava;
 
+import java.util.ArrayList;
+
 /**
  * Created by jsen on 20.01.17.
  */
@@ -10,6 +12,7 @@ public class Player {
     private int level;
     private int score;
     private Weapon weapon;
+    private ArrayList<Loot> inventory;
 
     public Player(){
         //to jest wywołanie drugiego konstruktora (tego ze Setring handle)
@@ -29,7 +32,8 @@ public class Player {
         setLives(3);
         setLevel(startingLevel);
         setScore(0);
-        setDefaultWeapon();
+//        setDefaultWeapon();
+        inventory = new ArrayList<>();
     }
 
     public Player(String handleName, int lives, int level, int score) {
@@ -88,5 +92,25 @@ public class Player {
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
+    }
+
+    public ArrayList<Loot> getInventory() {
+        return inventory;
+    }
+
+//    public void setInventory(ArrayList<Loot> inventory) {
+//        this.inventory = inventory;
+//    }
+
+    public void pickUpLoot(Loot newLoot){
+        inventory.add(newLoot);
+    }
+
+    public boolean dropLoot(Loot loot){
+        if(this.inventory.contains(loot)) {
+            inventory.remove(loot);
+            return true;
+        }
+        return false;
     }
 }
